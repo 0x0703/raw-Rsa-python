@@ -3,8 +3,6 @@
 A Python implementation of the RSA cryptographic algorithm with a modern GUI interface.
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![Pylint](https://img.shields.io/badge/Pylint-9.46%2F10-brightgreen.svg)
-![Security](https://img.shields.io/badge/Bandit-0%20vulnerabilities-success.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## ✨ Features
@@ -180,13 +178,6 @@ ciphertext = public_key.encrypt(
 )
 ```
 
-## 📊 Code Quality
-
-| Analyzer | Result |
-|----------|--------|
-| Pylint | **9.46 / 10** |
-| Bandit (Security) | **0 vulnerabilities** |
-
 ## 🛠️ Dependencies
 
 - `cryptography` — For PEM key format support (optional)
@@ -195,12 +186,3 @@ ciphertext = public_key.encrypt(
 ## 📄 License
 
 MIT License — feel free to use for educational purposes.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing`)
-5. Open a Pull Request
-
