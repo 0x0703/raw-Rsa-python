@@ -1,46 +1,46 @@
-# 🔐 RSA Encryption Tool
+# 🔐 RSA Шифрование
 
-A Python implementation of the RSA cryptographic algorithm with a modern GUI interface.
+Реализация алгоритма RSA на Python с современным графическим интерфейсом.
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+![License](https://img.shields.io/badge/Лицензия-MIT-yellow.svg)
 
-## ✨ Features
+## ✨ Возможности
 
-- **Key Generation** — 512, 1024, or 2048-bit RSA keys using Miller-Rabin primality test
-- **Encryption/Decryption** — Block cipher with Base64 output, full Unicode support
-- **Standard Key Formats** — PEM (X.509, PKCS#8) compatible with OpenSSL
-- **Modern GUI** — Dark theme interface built with tkinter
-- **Cross-platform** — Works on Windows, macOS, and Linux
+- **Генерация ключей** — 512, 1024 или 2048 бит с использованием теста Миллера-Рабина
+- **Шифрование/Дешифрование** — блочное шифрование с выводом в Base64, поддержка Unicode
+- **Стандартные форматы ключей** — PEM (X.509, PKCS#8), совместимые с OpenSSL
+- **Современный интерфейс** — тёмная тема на tkinter
+- **Кроссплатформенность** — работает на Windows, macOS и Linux
 
-## 📸 Screenshots
+## 📸 Скриншоты
 
 <details>
-<summary>Key Generation</summary>
+<summary>Генерация ключей</summary>
 
-Generate RSA key pairs in PEM or HEX format with selectable key sizes.
+Генерация пар ключей RSA в формате PEM или HEX с выбором размера.
 </details>
 
 <details>
-<summary>Encryption</summary>
+<summary>Шифрование</summary>
 
-Encrypt messages using public key, output in Base64 format.
+Шифрование сообщений с использованием публичного ключа, вывод в Base64.
 </details>
 
 <details>
-<summary>Decryption</summary>
+<summary>Дешифрование</summary>
 
-Decrypt messages using private key with automatic format detection.
+Дешифрование сообщений с автоматическим определением формата ключа.
 </details>
 
-## 🚀 Installation
+## 🚀 Установка
 
-### Prerequisites
+### Требования
 
-- Python 3.8 or higher
-- tkinter (included with Python on most systems)
+- Python 3.8 или выше
+- tkinter (включён в Python на большинстве систем)
 
-### Clone and Install
+### Клонирование и установка
 
 ```bash
 git clone https://github.com/yourusername/rsa-encryption.git
@@ -48,48 +48,48 @@ cd rsa-encryption
 pip install -r requirements.txt
 ```
 
-### Run
+### Запуск
 
 ```bash
 python main.py
 ```
 
-## 📖 Usage
+## 📖 Использование
 
-### GUI Application
+### Графический интерфейс
 
-1. **Generate Keys** — Click "Generate Keys" on the Keys tab
-2. **Encrypt** — Paste your message, go to Encrypt tab, click "Encrypt"
-3. **Decrypt** — Paste encrypted text, go to Decrypt tab, click "Decrypt"
+1. **Генерация ключей** — нажмите "Generate Keys" на вкладке Keys
+2. **Шифрование** — введите сообщение, перейдите на вкладку Encrypt, нажмите "Encrypt"
+3. **Дешифрование** — вставьте зашифрованный текст, перейдите на вкладку Decrypt, нажмите "Decrypt"
 
-### As a Library
+### Как библиотека
 
 ```python
 from rsa_core import generate_keypair, encrypt_message, decrypt_message
 
-# Generate 2048-bit keys
+# Генерация 2048-битных ключей
 public_key, private_key = generate_keypair(2048)
 
-# Encrypt
-message = "Hello, World!"
+# Шифрование
+message = "Привет, мир!"
 encrypted = encrypt_message(message, public_key)
-print(f"Encrypted: {encrypted}")
+print(f"Зашифровано: {encrypted}")
 
-# Decrypt
+# Дешифрование
 decrypted = decrypt_message(encrypted, private_key)
-print(f"Decrypted: {decrypted}")
+print(f"Расшифровано: {decrypted}")
 ```
 
-### PEM Format Keys
+### Экспорт ключей в PEM
 
 ```python
-from rsa_core import generate_keypair, keys_to_pem, pem_to_keys
+from rsa_core import generate_keypair, keys_to_pem
 
-# Generate and export to PEM
+# Генерация и экспорт в PEM
 public_key, private_key = generate_keypair(2048)
 public_pem, private_pem = keys_to_pem(public_key, private_key)
 
-# Save to files
+# Сохранение в файлы
 with open("public_key.pem", "w") as f:
     f.write(public_pem)
 
@@ -97,72 +97,72 @@ with open("private_key.pem", "w") as f:
     f.write(private_pem)
 ```
 
-## 📁 Project Structure
+## 📁 Структура проекта
 
 ```
 RSA/
-├── rsa_core.py      # RSA cryptography core (algorithms, math)
-├── main.py          # GUI application (tkinter)
-├── requirements.txt # Dependencies
-├── README.md        # This file
-└── REPORT.html      # Technical documentation
+├── rsa_core.py      # Ядро криптографии RSA (алгоритмы, математика)
+├── main.py          # Графический интерфейс (tkinter)
+├── requirements.txt # Зависимости
+├── README.md        # Этот файл
+└── REPORT.html      # Техническая документация
 ```
 
-## 🔧 Technical Details
+## 🔧 Технические детали
 
-### Algorithms
+### Алгоритмы
 
-| Component | Implementation |
-|-----------|----------------|
-| Primality Test | Miller-Rabin (10 rounds, error ≤ 10⁻⁶) |
-| Key Generation | Two random primes p, q; n = p×q |
-| Public Exponent | e = 65537 (Fermat prime) |
-| Private Exponent | Extended Euclidean Algorithm |
-| Encryption | c = m^e mod n (block cipher) |
-| Output Format | Base64 encoded |
+| Компонент | Реализация |
+|-----------|------------|
+| Тест простоты | Миллер-Рабин (10 раундов, ошибка ≤ 10⁻⁶) |
+| Генерация ключей | Два случайных простых p, q; n = p×q |
+| Публичная экспонента | e = 65537 (простое Ферма) |
+| Приватная экспонента | Расширенный алгоритм Евклида |
+| Шифрование | c = m^e mod n (блочное) |
+| Формат вывода | Base64 |
 
-### Key Formats
+### Форматы ключей
 
-**Public Key — X.509 (SubjectPublicKeyInfo)**
+**Публичный ключ — X.509 (SubjectPublicKeyInfo)**
 ```
 -----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A...
 -----END PUBLIC KEY-----
 ```
 
-**Private Key — PKCS#8**
+**Приватный ключ — PKCS#8**
 ```
 -----BEGIN PRIVATE KEY-----
 MIIEvgIBADANBgkqhkiG9w0BAQEFAASC...
 -----END PRIVATE KEY-----
 ```
 
-### OpenSSL Compatibility
+### Совместимость с OpenSSL
 
-Keys are compatible with OpenSSL:
+Ключи совместимы с OpenSSL:
 
 ```bash
-# Verify private key
+# Проверка приватного ключа
 openssl rsa -in private_key.pem -check
 
-# Extract public key
+# Извлечение публичного ключа
 openssl rsa -in private_key.pem -pubout -out public.pem
 
-# View key details
+# Просмотр параметров ключа
 openssl rsa -in private_key.pem -text -noout
 ```
 
-## ⚠️ Important Notes
+## ⚠️ Важно
 
-This is an **educational implementation** of RSA (Textbook RSA) without padding.
+Это **учебная реализация** RSA (Textbook RSA) без паддинга.
 
-| Aspect | This Implementation | Production Standard |
-|--------|---------------------|---------------------|
-| Padding | None | OAEP (RFC 8017) |
-| Key Format | ✅ PEM (X.509, PKCS#8) | ✅ PEM |
-| Ciphertext | Base64 blocks | ASN.1 DER |
+| Аспект | Данная реализация | Промышленный стандарт |
+|--------|-------------------|----------------------|
+| Паддинг | Отсутствует | OAEP (RFC 8017) |
+| Формат ключей | ✅ PEM (X.509, PKCS#8) | ✅ PEM |
+| Шифротекст | Base64 блоки | ASN.1 DER |
 
-**For production use**, consider using the `cryptography` library with OAEP padding:
+**Для продакшена** используйте библиотеку `cryptography` с OAEP паддингом:
 
 ```python
 from cryptography.hazmat.primitives.asymmetric import padding
@@ -178,11 +178,11 @@ ciphertext = public_key.encrypt(
 )
 ```
 
-## 🛠️ Dependencies
+## 🛠️ Зависимости
 
-- `cryptography` — For PEM key format support (optional)
-- `tkinter` — GUI (included with Python)
+- `cryptography` — для поддержки PEM формата (опционально)
+- `tkinter` — GUI (включён в Python)
 
-## 📄 License
+## 📄 Лицензия
 
-MIT License — feel free to use for educational purposes.
+MIT — свободное использование в образовательных целях.
